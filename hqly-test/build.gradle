@@ -1,0 +1,29 @@
+buildscript {
+	repositories{
+		mavenLocal() 
+		mavenCentral()
+	}	
+	dependencies {
+		classpath 'org.flywaydb:flyway-gradle-plugin:3.0'
+	}
+}
+
+apply plugin: 'flyway'
+apply plugin: 'java'
+
+repositories{
+		mavenLocal()
+		mavenCentral()
+}	
+
+dependencies {
+		testCompile 'org.springframework:spring-test:4.0.5.RELEASE', 
+					'org.hibernate:hibernate-core:4.3.5.Final', 
+					'junit:junit:4.11', 
+					'com.hqly.data:hqly:0.0.1-SNAPSHOT','org.hsqldb:hsqldb:2.2.4'
+}
+
+flyway {
+    url = 'jdbc:hsqldb:hsql://localhost/'
+    user = 'sa'
+}
