@@ -1,9 +1,11 @@
 package com.hqly.main;
 
+import static org.hamcrest.core.Is.is;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import com.hqly.model.Country;
@@ -21,6 +23,6 @@ public class PresenterTest {
 	country.setName("India");
 	list.add(country);
 	String output = presenter.format(list);
-	Assert.assertEquals("Key:1, Name:India, Code:IN, Capital:Delhi", output);
+	MatcherAssert.assertThat(output, is(new PresenterMatcher()));
     }
 }

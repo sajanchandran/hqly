@@ -24,7 +24,7 @@ public class Presenter {
 		    String fieldName = methods[i].getName().replace("get", "");
 		    try {
 			Object fieldValue = methods[i].invoke(object,(Object[]) null);
-			builder.append(fieldName + ":" + fieldValue + ", ");
+			builder.append(fieldName + ":" + fieldValue + ",");
 		    } catch (IllegalAccessException e) {
 			e.printStackTrace();
 		    } catch (IllegalArgumentException e) {
@@ -35,7 +35,10 @@ public class Presenter {
 		}
 	    }
 	}
-	return builder.toString();
+	String output = builder.toString();
+	System.out.println(output);
+	System.out.println(output.substring(0, output.length() - 1));
+	return output.substring(0, output.length() - 1);
     }
 
 }
