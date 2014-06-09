@@ -36,8 +36,6 @@ public class Presenter {
 	    }
 	}
 	String output = builder.toString();
-	System.out.println(output);
-	System.out.println(output.substring(0, output.length() - 1));
 	return output.substring(0, output.length() - 1);
     }
 

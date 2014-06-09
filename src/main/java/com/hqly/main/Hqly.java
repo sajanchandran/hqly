@@ -13,7 +13,7 @@ public class Hqly {
 	QueryHelper helper = new QueryHelper();
 	helper.setSession(sessionFactory.openSession());
 	List<Object> output = helper.execute(args[0]);
-	System.out.println(output);
+	System.out.println(new Presenter().format(output));
 	context.close();
     }
 }
