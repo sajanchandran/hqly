@@ -20,6 +20,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.hqly.model.Country</value>
+				<value>com.hqly.model.Continent</value>
 			</list>
 		</property>
 

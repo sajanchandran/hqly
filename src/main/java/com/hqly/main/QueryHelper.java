@@ -9,12 +9,12 @@ public class QueryHelper {
     private Session session;
 
     public void setSession(Session session) {
-	this.session = session;
+    	this.session = session;
     }
 
     @SuppressWarnings("unchecked")
     public List<Object> execute(String hql) {
-	return session.createQuery(hql).list();
+    	return session.createQuery(hql).list();
     }
 
 }

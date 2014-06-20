@@ -29,25 +29,25 @@ public class HqlyTest {
     
     @Before
     public void onceBeforeEachTest(){
-	Session session = sessionFactory.openSession();
-	SQLQuery query = session.createSQLQuery("insert into t_country values (1, 'India','IN', 'DELHI')");
-	query.executeUpdate();
-	session.close();
+		Session session = sessionFactory.openSession();
+		SQLQuery query = session.createSQLQuery("insert into t_country values (1, 'India','IN', 'DELHI')");
+		query.executeUpdate();
+		session.close();
     }
     
     @After
     public void onceAfterEachTest(){
-	System.setOut(null);
-	Session session = sessionFactory.openSession();
-	SQLQuery query = session.createSQLQuery("delete from t_country");
-	query.executeUpdate();
-	session.close();	
+		System.setOut(null);
+		Session session = sessionFactory.openSession();
+		SQLQuery query = session.createSQLQuery("delete from t_country");
+		query.executeUpdate();
+		session.close();	
     }
     
     @Test
     public void executeQuery(){
-	System.setOut(new PrintStream(output));
-	Hqly.main(new String[]{"from Country"});
-	assertEquals("Name:India,Key:1,Capital:DELHI,Code:IN", output.toString());
+		System.setOut(new PrintStream(output));
+		Hqly.main(new String[]{"from Country"});
+		assertEquals("Name:India,Key:1,Capital:DELHI,Code:IN", output.toString());
     }
 }

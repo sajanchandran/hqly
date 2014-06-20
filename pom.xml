@@ -68,7 +68,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.0.1</version>
+			<version>3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -92,8 +92,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -102,6 +102,7 @@
 				<version>1.0-alpha-2</version>
 				<executions>
 					<execution>
+						<phase>initialize</phase>					
 						<goals>
 							<goal>read-project-properties</goal>
 						</goals>
@@ -112,19 +113,6 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>appassembler-maven-plugin</artifactId>
-				<version>1.8</version>
-				<configuration>
-					<programs>
-						<program>
-							<mainClass>com.hqly.main.Hqly</mainClass>
-							<id>app</id>
-						</program>
-					</programs>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -157,7 +145,7 @@
 							<user>${jdbc.user}</user>
 							<password>${jdbc.password}</password>
 							<locations>
-								<location>filesystem:${basedir}/src/test/sql</location>
+								<location>filesystem:${basedir}/src/test/resources/db/migration</location>
 							</locations>
 							<encoding>Cp1252</encoding>
 						</configuration>
