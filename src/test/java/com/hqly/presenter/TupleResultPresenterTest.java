@@ -39,8 +39,8 @@ public class TupleResultPresenterTest {
 	public void resultHasObjects(){
 		List<Object[]> tupleList = populateResultListWithTwoRecordOfCountry();
 		String output = presenter.format(tupleList);
-		assertThat(output, is("Key=123,Name=India,Code=IN,Capital=Delhi" +
-				System.lineSeparator() + "Key=234,Name=Britain,Code=UK,Capital=London" + System.lineSeparator()));
+		assertThat(output, is("Key=123, Name=India, Code=IN, Capital=Delhi" +
+				System.lineSeparator() + "Key=234, Name=Britain, Code=UK, Capital=London" + System.lineSeparator()));
 	}
 	
 	private List<Object[]> populateResultListWithTwoRecordOfCountry() {

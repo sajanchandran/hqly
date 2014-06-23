@@ -44,11 +44,19 @@ public abstract class Presenter {
 		
 		@Override
 		protected void appendContentEnd(StringBuffer buffer) {
+			buffer.delete(buffer.length()-2, buffer.length());
+			buffer.append(System.lineSeparator());
 		}
 		
 		@Override
 		protected void appendFieldStart(StringBuffer buffer, String fieldName) {
 			super.appendFieldStart(buffer, StringUtils.capitalize(fieldName));
+		}
+		
+		@Override
+		protected void appendFieldEnd(StringBuffer buffer, String fieldName) {
+			super.appendFieldEnd(buffer, fieldName);
+			buffer.append(" ");
 		}
 	}
 }

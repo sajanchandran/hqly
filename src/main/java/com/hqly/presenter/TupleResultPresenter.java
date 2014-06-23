@@ -22,15 +22,16 @@ public class TupleResultPresenter extends Presenter{
 			Object[] tuple = (Object[]) object;
 			for (Object tuplets : tuple) {
 				if(ClassUtils.isPrimitiveWrapper(tuplets.getClass()) || tuplets instanceof String){
-					output.append(tuplets + ",");
-				}
-				output.append(System.lineSeparator());
-			}
-			for (Object tuplets : tuple) {
+					output.append(tuplets);
+					output.append(", ");
+				}else{
 					output.append(convertObjectToString(tuplets));
-					output.append(System.lineSeparator());
 				}
+			}
+			output = output.delete(output.length()-2, output.length());
+			output.append(System.lineSeparator());
 		}
 		return output.toString();
 	}
+	
 }
