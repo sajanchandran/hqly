@@ -2,6 +2,8 @@ package com.hqly.presenter;
 
 import java.util.List;
 
+import org.apache.commons.lang3.ClassUtils;
+
 /**Factory to determine the type of presenter to be used, based on the 
  * result set from the database.
  * @author chandrans1
@@ -18,20 +20,11 @@ public class PresenterFactory {
 			return new EmptyResultPresenter();
 		}else if(list.get(0) instanceof Object[]){
 			return new TupleResultPresenter();
+		}else if(ClassUtils.isPrimitiveWrapper(list.get(0).getClass()) || list.get(0) instanceof String){
+			return new ResultPresenter();
 		}else{
 			return new ResultPresenter();
 		}
-	}
-
-	public Presenter getPresenter(String hql) {
-		//eg. from country
-		if(hql.matches("^from[^,]+")){
-			return new ResultPresenter();
-		//eg. from country, states	
-		}else if(hql.matches("^from\\s+\\w+,(?:\\s*\\w+,?)+")){
-			return new TupleResultPresenter();
-		}
-		return null;
 	}
 
 }

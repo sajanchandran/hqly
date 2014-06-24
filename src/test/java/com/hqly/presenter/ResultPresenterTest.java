@@ -23,7 +23,7 @@ public class ResultPresenterTest {
 		country.setName("India");
 		list.add(country);
 		String output = presenter.format(list);
-		assertThat(output, is("Key=1,Name=India,Code=IN,Capital=Delhi" + System.lineSeparator()));
+		assertThat(output, is("Key=1, Name=India, Code=IN, Capital=Delhi" + System.lineSeparator()));
     }
     
     @Test
@@ -44,7 +44,7 @@ public class ResultPresenterTest {
     	list.add(uk);
     	String output = presenter.format(list);
     	System.out.println(output);
-    	assertThat(output, is("Key=1,Name=India,Code=IN,Capital=Delhi" + System.lineSeparator() 
-    			+"Key=2,Name=Britai,Code=UK,Capital=London" + System.lineSeparator() ));
+    	assertThat(output, is("Key=1, Name=India, Code=IN, Capital=Delhi" + System.lineSeparator() 
+    			+"Key=2, Name=Britai, Code=UK, Capital=London" + System.lineSeparator() ));
     }
 }

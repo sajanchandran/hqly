@@ -19,12 +19,13 @@ public class ResultPresenter extends Presenter{
 	 */
 	@Override
 	public String format(List<?> list) {
-		StringBuilder builder = new StringBuilder();
+		StringBuilder output = new StringBuilder();
 		for (Object object : list) {
-			builder.append(convertObjectToString(object));
-			builder.append(System.lineSeparator());
+			formatTuples(output, object);
 		}
-		return builder.toString();
+		output = output.delete(output.length()-2, output.length());
+		output.append(System.lineSeparator());
+		return output.toString();
 	}
 
 }

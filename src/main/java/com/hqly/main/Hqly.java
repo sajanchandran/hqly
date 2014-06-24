@@ -24,7 +24,7 @@ public class Hqly {
 		while(scanner.hasNextLine()){
 			String sql = scanner.nextLine();
 			List<Object> output = helper.execute(sql);
-			Presenter presenter = factory.getPresenter(sql);
+			Presenter presenter = factory.getPresenter(output);
 			System.out.println(presenter.format(output));
 			System.out.println(">>>");
 		}

@@ -18,6 +18,6 @@ public class PresenterTest {
 		country.setName("India");
 		Presenter presenter = new ResultPresenter();
 		String toString = presenter.convertObjectToString(country);
-		assertThat(toString, Is.is("Key=123,Name=India,Code=IN,Capital=Delhi"));
+		assertThat(toString, Is.is("Key=123, Name=India, Code=IN, Capital=Delhi" + System.lineSeparator()));
 	}
 }

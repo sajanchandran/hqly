@@ -15,18 +15,6 @@ public class PresenterFactoryTest {
 	private PresenterFactory factory = new PresenterFactory();
 	
 	@Test
-	public void selectWholeObjectFromOneTable(){
-		Presenter presenter = factory.getPresenter("from Country");
-		assertThat(presenter, instanceOf(ResultPresenter.class));
-	}
-	
-	@Test
-	public void selectWholeObjectFromMoreThanOneTable(){
-		Presenter presenter = factory.getPresenter("from Country, Continent");
-		assertThat(presenter, instanceOf(TupleResultPresenter.class));
-	}
-	
-	@Test
 	public void returnsCorrectPresenterForEmptyResultSet(){
 		Presenter presenter = factory.getPresenter(new ArrayList<Object>());
 		assertThat(presenter, instanceOf(EmptyResultPresenter.class));
@@ -55,7 +43,8 @@ public class PresenterFactoryTest {
 	public void returnsCorrectPresenterWhenUserRequestIndividualTuplesWithOneColumn(){
 		List<Object> resultList = new ArrayList<Object>();
 		resultList.add("India");
+		resultList.add("UK");
 		Presenter presenter = factory.getPresenter(resultList);
-		assertThat(presenter, instanceOf(TupleResultPresenter.class));
+		assertThat(presenter, instanceOf(ResultPresenter.class));
 	}
 }

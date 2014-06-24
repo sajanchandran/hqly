@@ -2,6 +2,7 @@ package com.hqly.presenter;
 
 import java.util.List;
 
+import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -28,6 +29,15 @@ public abstract class Presenter {
 		return ToStringBuilder.reflectionToString(object, new CustomToStringStyle());
 	}
 	
+	protected void formatTuples(StringBuilder output, Object tuplets) {
+		if(ClassUtils.isPrimitiveWrapper(tuplets.getClass()) || tuplets instanceof String){
+			output.append(tuplets);
+			output.append(", ");
+		}else{
+			output.append(convertObjectToString(tuplets));
+		}
+	}
+
 	@SuppressWarnings("serial")
 	private class CustomToStringStyle extends ToStringStyle {
 		@Override

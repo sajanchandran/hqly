@@ -2,10 +2,6 @@ package com.hqly.presenter;
 
 import java.util.List;
 
-import org.apache.commons.lang3.ClassUtils;
-
-import com.google.common.base.Joiner;
-
 /** Class responsible for rendering if the user requested individual tuples.
  * @author chandrans1
  *
@@ -21,12 +17,7 @@ public class TupleResultPresenter extends Presenter{
 		for (Object object : list) {
 			Object[] tuple = (Object[]) object;
 			for (Object tuplets : tuple) {
-				if(ClassUtils.isPrimitiveWrapper(tuplets.getClass()) || tuplets instanceof String){
-					output.append(tuplets);
-					output.append(", ");
-				}else{
-					output.append(convertObjectToString(tuplets));
-				}
+				formatTuples(output, tuplets);
 			}
 			output = output.delete(output.length()-2, output.length());
 			output.append(System.lineSeparator());
