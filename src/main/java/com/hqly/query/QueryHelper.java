@@ -1,4 +1,4 @@
-package com.hqly.main;
+package com.hqly.query;
 
 import java.util.List;
 
@@ -13,8 +13,11 @@ public class QueryHelper {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Object> execute(String hql) {
+    public List<Object> select(String hql) {
     	return session.createQuery(hql).list();
     }
 
+	public int update(String hql) {
+		return session.createQuery(hql).executeUpdate();
+	}
 }

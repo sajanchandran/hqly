@@ -215,3 +215,8 @@ pip-log.txt
 .mr.developer.cfg
 target
 
+hqly-test/.gradle/1.12/taskArtifacts/cache.properties
+hqly-test/.gradle/1.12/taskArtifacts/cache.properties.lock
+*.bin
+hqly-test/.gradle/gradle.properties
+test.txt
