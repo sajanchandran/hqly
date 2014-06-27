@@ -47,4 +47,10 @@ public class PresenterFactoryTest {
 		Presenter presenter = factory.getPresenter(resultList);
 		assertThat(presenter, instanceOf(ResultPresenter.class));
 	}
+	
+	@Test
+	public void returnsCorrectPresenterForDMLQueries(){
+		Presenter presenter = factory.getPresenter(2);
+		assertThat(presenter, instanceOf(UpdateResultPresenter.class));
+	}
 }

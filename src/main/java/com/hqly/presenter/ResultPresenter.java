@@ -28,4 +28,9 @@ public class ResultPresenter extends Presenter{
 		return output.toString();
 	}
 
+	@Override
+	public String format(int rowsUpdated) {
+		throw new UnsupportedOperationException();
+	}
+
 }

@@ -21,6 +21,7 @@ public abstract class Presenter {
 	 */
 	public abstract String format(List<?> list);
 	
+	public abstract String format(int rowsUpdated);
 	/**
 	 * @param object
 	 * @return

@@ -16,4 +16,9 @@ public class EmptyResultPresenter extends Presenter {
 		return "No Records Found";
 	}
 
+	@Override
+	public String format(int rowsUpdated) {
+		throw new UnsupportedOperationException();
+	}
+
 }

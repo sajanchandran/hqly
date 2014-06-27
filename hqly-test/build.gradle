@@ -10,6 +10,7 @@ buildscript {
 
 apply plugin: 'flyway'
 apply plugin: 'java'
+apply plugin: 'project-report'
 
 repositories{
 		mavenLocal()

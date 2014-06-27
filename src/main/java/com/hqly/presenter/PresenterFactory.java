@@ -27,4 +27,8 @@ public class PresenterFactory {
 		}
 	}
 
+	public Presenter getPresenter(int rowsUpdated) {
+		return new UpdateResultPresenter();
+	}
+
 }
